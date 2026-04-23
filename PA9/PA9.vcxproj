@@ -182,7 +182,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Fish.cpp" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Bass.hpp" />
+    <ClInclude Include="Catfish.hpp" />
+    <ClInclude Include="Perch.hpp" />
+    <ClInclude Include="Fish.hpp" />
+    <ClInclude Include="Rod.hpp" />
+    <ClInclude Include="Salmon.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
