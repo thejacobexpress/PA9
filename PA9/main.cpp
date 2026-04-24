@@ -1,10 +1,11 @@
 #include <SFML/Graphics.hpp>
+#include "Bass.hpp"
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode({ 200, 200 }), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+    Bass f = Bass();
+
+    sf::RenderWindow window(sf::VideoMode({ 1280, 720 }), "SFML (Savage Fish Mayhem Live)");
 
     while (window.isOpen())
     {
@@ -14,8 +15,10 @@ int main()
                 window.close();
         }
 
+
+
         window.clear();
-        window.draw(shape);
+        window.draw(f.getWaterSprite());
         window.display();
     }
 }

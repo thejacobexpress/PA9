@@ -193,6 +193,9 @@
     <ClInclude Include="Rod.hpp" />
     <ClInclude Include="Salmon.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\sprites\reel_fish.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

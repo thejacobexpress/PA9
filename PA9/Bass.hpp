@@ -4,13 +4,11 @@
 class Bass : public Fish
 {
 public:
-	Bass() : Fish("Bass", 5.0, 3)
+	Bass() : Fish("reel_fish.png", "reel_fish.png", "Bass", 5.0, 3)
 	{
-		//this->setWaterSprite() //updating water sprite
-		//this->setWrangleSprite() //updating wrangle sprite
-	};
+
+	}
 
 private:
-
 
 };
