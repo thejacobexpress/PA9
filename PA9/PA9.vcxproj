@@ -184,6 +184,7 @@
   <ItemGroup>
     <ClCompile Include="Fish.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Wrangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bass.hpp" />
@@ -192,9 +193,12 @@
     <ClInclude Include="Fish.hpp" />
     <ClInclude Include="Rod.hpp" />
     <ClInclude Include="Salmon.hpp" />
+    <ClInclude Include="Wrangle.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\sprites\reel.png" />
     <Image Include="..\sprites\reel_fish.png" />
+    <Image Include="..\sprites\water_bass.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -37,6 +37,20 @@ public:
 		return this->wrangleSprite;
 	}
 
+	sf::Texture& getWaterTexture()
+	{
+		return this->waterText;
+	}
+
+	sf::Texture& getWrangleTexture()
+	{
+		return this->wrangleText;
+	}
+
+	int getStrength() {
+		return this->strength;
+	}
+
 private:
 	//Constant data
 	string name;
