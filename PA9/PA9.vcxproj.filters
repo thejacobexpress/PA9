@@ -21,6 +21,9 @@
     <ClCompile Include="Fish.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Wrangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Fish.hpp">
@@ -41,5 +44,25 @@
     <ClInclude Include="Salmon.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Wrangle.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\sprites\reel.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\sprites\reel_fish.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\sprites\water_bass.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\sprites\bass.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\sprites\catfish.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

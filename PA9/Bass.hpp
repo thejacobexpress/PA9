@@ -4,7 +4,7 @@
 class Bass : public Fish
 {
 public:
-	Bass() : Fish("water_bass.png", "reel_fish.png", "Bass", 5.0, 3)
+	Bass() : Fish("water_bass.png", "reel_fish.png", "bass.png", "Bass", 5.0, 3)
 	{
 
 	}

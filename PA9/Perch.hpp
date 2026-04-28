@@ -4,7 +4,7 @@
 class Perch : public Fish
 {
 public:
-	Perch() : Fish("water_perch.png", "reel_fish.png", "Perch", 1.0, 1)
+	Perch() : Fish("water_perch.png", "reel_fish.png", "bass.png", "Perch", 1.0, 1)
 	{
 		//this->setWaterSprite() //updating water sprite
 		//this->setWrangleSprite() //updating wrangle sprite

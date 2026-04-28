@@ -4,7 +4,7 @@
 class Catfish : public Fish
 {
 public:
-	Catfish() : Fish("water_catfish.png", "reel_fish.png", "Catfish", 2.0, 2)
+	Catfish() : Fish("water_catfish.png", "reel_fish.png", "catfish.png", "Catfish", 2.0, 2)
 	{
 		//this->setWaterSprite() //updating water sprite
 		//this->setWrangleSprite() //updating wrangle sprite

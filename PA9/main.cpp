@@ -4,12 +4,12 @@
 
 int main()
 {
-    float scale = 1.5;
+    float scale = 1;
     
     sf::RenderWindow window(sf::VideoMode({ 1280, 720 }), "SFML (Savage Fish Mayhem Live)");
 
     Bass bass;
-	Wrangle wrangle(bass, window, scale);
+    Wrangle* wrangle = new Wrangle(bass, window, scale);
 
     while (window.isOpen())
     {
@@ -21,7 +21,12 @@ int main()
 
         window.clear();
 
-        wrangle.draw_scene(bass, window);
+        if (!wrangle->getDel()) {
+            wrangle->draw_scene(bass, window);
+        }
+        else {
+            delete wrangle;
+        }
 
         window.display();
 

@@ -196,6 +196,8 @@
     <ClInclude Include="Wrangle.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\sprites\bass.png" />
+    <Image Include="..\sprites\catfish.png" />
     <Image Include="..\sprites\reel.png" />
     <Image Include="..\sprites\reel_fish.png" />
     <Image Include="..\sprites\water_bass.png" />
