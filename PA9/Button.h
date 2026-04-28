@@ -3,7 +3,7 @@
 
 enum ButtonState
 {
-	Idle = 0, Hover = 1, Pushed = 2
+	Idle = 0, Hover = 1, Pushed = 2, Locked = 3
 };
 
 class Button : public sf::Sprite
@@ -25,7 +25,11 @@ public:
 		setColor(mIdleColour);
 	}
 
-	void updateButtonState(const sf::Vector2f& mousePosition);
+	void setLocked(bool locked);
+	bool isLocked(void) const;
+
+	bool contains(const sf::Vector2f& mousePosition);
+	void updateButtonState(const sf::Vector2f& mousePosition, bool isMousePressed);
 	ButtonState getState() const;
 
 private:

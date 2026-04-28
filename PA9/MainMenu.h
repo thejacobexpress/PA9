@@ -25,16 +25,17 @@ public:
 		}
 
 		mStartButton.emplace(mStartTexture, sf::Vector2f((windowSize.x / 2.f - (BUTTON_WIDTH / 2.f)), (windowSize.y / 2.f + (BUTTON_HEIGHT / 2.f) - PADDING - BUTTON_HEIGHT)), sf::Color::White, sf::Color(150, 150, 150), sf::Color(100, 100, 100));
-		mCreditsButton.emplace(mCreditsTexture, sf::Vector2f((windowSize.x / 2.f - (BUTTON_WIDTH / 2.f)), (mStartButton->getPosition().y + PADDING + BUTTON_HEIGHT)), sf::Color::White, sf::Color(150, 150, 150), sf::Color(100, 100, 100));
-		mQuitButton.emplace(mQuitTexture, sf::Vector2f((windowSize.x / 2.f - (BUTTON_WIDTH / 2.f)), (mCreditsButton->getPosition().y + PADDING + BUTTON_HEIGHT)), sf::Color::White, sf::Color(150, 150, 150), sf::Color(100, 100, 100));
+		mCreditsButton.emplace(mCreditsTexture, sf::Vector2f(mStartButton->getPosition().x, (mStartButton->getPosition().y + PADDING + BUTTON_HEIGHT)), sf::Color::White, sf::Color(150, 150, 150), sf::Color(100, 100, 100));
+		mQuitButton.emplace(mQuitTexture, sf::Vector2f(mStartButton->getPosition().x, (mCreditsButton->getPosition().y + PADDING + BUTTON_HEIGHT)), sf::Color::White, sf::Color(150, 150, 150), sf::Color(100, 100, 100));
 	}
 
 	//Update button state with mouse
 	void update(const sf::Vector2f& mousePosition) override
 	{
-		mStartButton->updateButtonState(mousePosition);
-		mCreditsButton->updateButtonState(mousePosition);
-		mQuitButton->updateButtonState(mousePosition);
+		bool isPressed = sf::Mouse::isButtonPressed(sf::Mouse::Button::Left);
+		mStartButton->updateButtonState(mousePosition, isPressed);
+		mCreditsButton->updateButtonState(mousePosition, isPressed);
+		mQuitButton->updateButtonState(mousePosition, isPressed);
 	}
 
 	//Draw buttons to screen
