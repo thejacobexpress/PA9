@@ -16,7 +16,7 @@ Wrangle::Wrangle(Fish* fish, sf::RenderWindow& window, float scale) {
     targetBar = sf::RectangleShape({ static_cast<float>(window.getSize().x/35), 100});
     targetBar.setOrigin({ targetBar.getLocalBounds().size.x / 2, targetBar.getLocalBounds().size.y / 4 });
     targetBar.setPosition({ 200, static_cast<float>(window.getSize().y / 4) });
-	targetBar.setFillColor(sf::Color::Green);
+	targetBar.setFillColor(sf::Color(105, 87, 68));
 
     progressBar = sf::RectangleShape({ 12, 0});
     progressBar.setOrigin({ targetBar.getLocalBounds().size.x / 2, targetBar.getLocalBounds().size.y / 2 });

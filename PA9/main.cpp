@@ -14,7 +14,7 @@ int main()
     float currency = 0.0;
     
     //Window
-    sf::RenderWindow window(sf::VideoMode({ 1280, 720 }), "SFML (Savage Fish Mayhem Live)");
+    sf::RenderWindow window(sf::VideoMode({ 1280, 720 }), "SFML (Savage Fish Mayhem Live)", sf::Style::Titlebar | sf::Style::Close);
     window.setFramerateLimit(60);
 
     //Water
