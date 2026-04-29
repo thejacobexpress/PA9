@@ -1,6 +1,6 @@
 #include "Fish.hpp"
 
-Fish::Fish(string waterTextPath, string wrangleTextPath, const string newName,
+Fish::Fish(string waterTextPath, string wrangleTextPath, string caughtTextPath, const string newName,
 	const double newSize, const int newStrength)
 {
 	this->name = newName;
@@ -11,8 +11,10 @@ Fish::Fish(string waterTextPath, string wrangleTextPath, const string newName,
 		static_cast<float>((rand() % 200) - 100) };
 	this->waterText.loadFromFile(waterTextPath);
 	this->wrangleText.loadFromFile(wrangleTextPath);
+	this->caughtText.loadFromFile(caughtTextPath);
 	this->setWaterSprite(sf::Sprite(waterText));
 	this->setWrangleSprite(sf::Sprite(wrangleText));
+	this->setCaughtSprite(sf::Sprite(caughtText));
 }
 
 Fish::~Fish() {
