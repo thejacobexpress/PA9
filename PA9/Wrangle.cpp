@@ -46,7 +46,10 @@ void Wrangle::draw_scene(Fish*fish, sf::RenderWindow& window) {
         // Wait 5 seconds
         if (std::chrono::high_resolution_clock::now() - startTime >= std::chrono::seconds(5)) {
             del = true;
-			fish->getWaterSprite().setColor(sf::Color::Transparent);
+            if (progress >= 100) {
+                fish->getWaterSprite().setColor(sf::Color::Transparent);
+                // Add fish to vector HERE
+            }
         }
     }
     else if (progress <= 0) {
