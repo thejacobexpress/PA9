@@ -1,10 +1,10 @@
 #include "Fish.hpp"
 
 Fish::Fish(string waterTextPath, string wrangleTextPath, string caughtTextPath, const string newName,
-	const double newSize, const int newStrength)
+	const double newWeight, const int newStrength)
 {
 	this->name = newName;
-	this->size = newSize;
+	this->weight = newWeight;
 	this->strength = newStrength;
 	this->onRod = false;
 	this->waterSpeed = 0.8f;

@@ -55,9 +55,6 @@ int main()
                 {
                     bobber.setPosition({ static_cast<float>(mousePressed->position.x),  static_cast<float>(mousePressed->position.y) });
                     bobber.startTimer();
-
-                    //Debugging
-                    cout << "New bobber position: " << bobber.getPosition().x << " " << bobber.getPosition().y << std::endl;
                 }
             }
         }

@@ -2,7 +2,7 @@
 
 WaterBody::WaterBody()
 {
-	this->maxFish = 100;
+	this->maxFish = 20;
 	this->fishCount = 0;
 
 	this->bounds = sf::RectangleShape({ 1200, 500 });
@@ -11,7 +11,7 @@ WaterBody::WaterBody()
 
 void WaterBody::spawnRandomFish()
 {
-	int fishChosen = std::rand() % 4 + 1;
+	int fishChosen = std::rand() % 100 + 1;
 
 	sf::Vector2f spawnPos;
 	float x = static_cast<float>(rand() % 1000) + 50;
@@ -19,28 +19,25 @@ void WaterBody::spawnRandomFish()
 	spawnPos.x = x;
 	spawnPos.y = y;
 
-	switch (fishChosen)
-	{
-	case 1:
+	//Perch has 50% chance
+	if (fishChosen >= 1 && fishChosen < 50)
 	{
 		this->fishPopulation.emplace_back(std::make_unique<Perch>(spawnPos));
-		break;
 	}
-	case 2:
+	//Catfish has 28%
+	else if (fishChosen >= 50 && fishChosen < 78)
 	{
 		this->fishPopulation.emplace_back(std::make_unique<Catfish>(spawnPos));
-		break;
 	}
-	case 3:
+	//Bass has 15%
+	else if (fishChosen >= 78 && fishChosen < 93)
 	{
 		this->fishPopulation.emplace_back(std::make_unique<Bass>(spawnPos));
-		break;
 	}
-	case 4:
+	//Salmon has 7%
+	else
 	{
 		this->fishPopulation.emplace_back(std::make_unique<Salmon>(spawnPos));
-		break;
-	}
 	}
 }
 

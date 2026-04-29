@@ -97,7 +97,7 @@ public:
 private:
 	//Constant data
 	string name;
-	double size; //measured in lbs (pounds)
+	double weight; //measured in lbs (pounds)
 	int strength; //Used by the wrangle meter to determine 
 
 	// Texture and sprite of fish in water, wrangling, and caught
