@@ -17,9 +17,6 @@ int main()
     sf::RenderWindow window(sf::VideoMode({ 1280, 720 }), "SFML (Savage Fish Mayhem Live)");
     window.setFramerateLimit(60);
 
-    //Bass bass;
-	//Wrangle wrangle(bass, window, scale);
-
     //Water
     WaterBody water;
 
@@ -37,8 +34,13 @@ int main()
     //Creating the bobber
     Bobber bobber;
 
+    Wrangle* wrangle = nullptr;
+    Fish* fish = nullptr;
+    int fishIndex = -1;
+
     while (window.isOpen())
     {
+
         //Event Queue
         while (const std::optional event = window.pollEvent())
         {
@@ -73,20 +75,22 @@ int main()
         window.clear();
 
         window.draw(bgWaterSprite);
-        
+
         //wrangle.draw_scene(bass, window);
 
-
         //Running fish checks
-        for (auto& fishPtr : water.getFishPopulation())
+        Fish* fishPtr = nullptr;
+        for (int i = 0; i < water.getFishCount(); i++)
         {
+            fishPtr = water.getFishPopulation()[i].get();
             //If the fish is on the bobber, the bobber can catch, & the bobber does not have a fish
             if (bobber.getBobberSprite().getGlobalBounds().contains(fishPtr->getWaterPos())
                 && bobber.getCanCatch()
-                && !bobber.getHasFish()) 
+                && !bobber.getHasFish())
             {
                 fishPtr->setOnRod(true);
                 bobber.setHasFish(true);
+                fishIndex = i;
             }
             //Otherwise, set on rod to false
             else if (!bobber.getHasFish() /*bobber does not have fish*/)
@@ -111,6 +115,30 @@ int main()
         //Rendow beach objects in front of water elements
         window.draw(bgBeachSprite);
         window.draw(bgObjectSprite);
+
+        // Wrangle logic
+        if (fishIndex != -1) {
+            if (wrangle == nullptr) {
+
+                for (int i = 0; i < water.getFishCount(); i++) {
+                    if (fishIndex == i) {
+                        fish = water.getFishPopulation()[i].get();
+                        break;
+                    }
+                }
+
+                wrangle = new Wrangle(fish, window, scale);
+                wrangle->draw_scene(fish, window);
+            }
+            else {
+                wrangle->draw_scene(fish, window);
+            }
+        }
+        else if (wrangle != nullptr && wrangle->getDel()) {
+            delete wrangle;
+            wrangle = nullptr;
+            fishIndex = -1;
+        }
 
         window.display();
 

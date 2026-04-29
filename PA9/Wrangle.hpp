@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+# include <memory>
 
 #include "Bass.hpp"
 #include "Catfish.hpp"
@@ -21,8 +22,8 @@ private:
 
     sf::RectangleShape targetBar = sf::RectangleShape({0, 0});
 	sf::Vector2f targetBarVelocity = { 0, 0 };
-    float gravityAcceleration = 0.002;
-    float userAcceleration = 0.006;
+    float gravityAcceleration = 0.02;
+    float userAcceleration = 0.1;
 
 	sf::RectangleShape progressBar = sf::RectangleShape({ 0, 0 });
     float progressBarHeight = 420;
@@ -34,12 +35,12 @@ private:
 	sf::Sprite caughtFishSprite = sf::Sprite(caughtFishText);
     
 public:
-    Wrangle(Fish& fish, sf::RenderWindow& window, float scale);
+    Wrangle(Fish* fish, sf::RenderWindow& window, float scale);
 
-    void draw_scene(Fish& fish, sf::RenderWindow& window);
+    void draw_scene(Fish* fish, sf::RenderWindow& window);
 
-	void move_fish(Fish& fish, sf::RenderWindow& window);
-    float get_new_loc(Fish& fish, sf::RenderWindow& window);
+	void move_fish(Fish* fish, sf::RenderWindow& window);
+    float get_new_loc(Fish* fish, sf::RenderWindow& window);
 
     bool getDel();
 };
