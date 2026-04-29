@@ -79,20 +79,20 @@ int main()
         
         //wrangle.draw_scene(bass, window);
 
+
         //Running fish checks
         for (auto& fishPtr : water.getFishPopulation())
         {
-            //If the fish is on the bobber, catch it
-            if (bobber.getBobberSprite().getGlobalBounds().contains(fishPtr->getWaterPos()) 
+            //If the fish is on the bobber, the bobber can catch, & the bobber does not have a fish
+            if (bobber.getBobberSprite().getGlobalBounds().contains(fishPtr->getWaterPos())
                 && bobber.getCanCatch()
-                && !bobber.getHasFish())
+                && !bobber.getHasFish()) 
             {
                 fishPtr->setOnRod(true);
                 bobber.setHasFish(true);
-
             }
             //Otherwise, set on rod to false
-            else
+            else if (!bobber.getHasFish() /*bobber does not have fish*/)
             {
                 fishPtr->setOnRod(false);
                 bobber.setHasFish(false);

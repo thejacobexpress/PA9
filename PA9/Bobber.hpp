@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "WaterBody.hpp"
 #include <iostream>
 #include <thread>
 #include <chrono>
@@ -44,6 +45,8 @@ public:
 
 	void draw_scene(sf::RenderWindow& window);
 
+	//bool hasFish(WaterBody& water);
+
 	//Timer
 	void startTimer()
 	{
@@ -60,7 +63,7 @@ private:
 	//True otherwise
 	bool canCatch;
 
-	//Checks if the 
+	////Checks if the 
 	bool hasFish;
 
 	//Represents time before bobber can catch fish in milliseconds

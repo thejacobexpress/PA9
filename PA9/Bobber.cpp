@@ -37,6 +37,18 @@ void Bobber::draw_scene(sf::RenderWindow& window)
 	window.draw(bobberSprite);
 }
 
+//bool Bobber::hasFish(WaterBody& water)
+//{
+//	for (auto& fishPtr : water.getFishPopulation())
+//	{
+//		if (this->getBobberSprite().getGlobalBounds().contains(fishPtr->getWaterPos()))
+//		{
+//			return true;
+//		}
+//	}
+//	return false;
+//}
+
 void Bobber::timerEnd()
 {
 	this->canCatch = true;
