@@ -50,7 +50,8 @@ int main()
             {
                 //Left mouse button
                 if (mousePressed->button == sf::Mouse::Button::Left 
-                    && water.getBounds().getGlobalBounds().contains({ static_cast<float>(mousePressed->position.x),  static_cast<float>(mousePressed->position.y) }))
+                    && water.getBounds().getGlobalBounds().contains({ static_cast<float>(mousePressed->position.x),  static_cast<float>(mousePressed->position.y) })
+                    && !bobber.getTimerRunning())
                 {
                     bobber.setPosition({ static_cast<float>(mousePressed->position.x),  static_cast<float>(mousePressed->position.y) });
                     bobber.startTimer();

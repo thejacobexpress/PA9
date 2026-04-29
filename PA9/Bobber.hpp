@@ -27,6 +27,10 @@ public:
 	{
 		return this->hasFish;
 	}
+	bool getTimerRunning()
+	{
+		return this->timerRunning;
+	}
 
 	sf::Vector2f getPosition()
 	{
@@ -61,6 +65,7 @@ private:
 
 	//Represents time before bobber can catch fish in milliseconds
 	int bobTime;
+	bool timerRunning;
 
 	void startTimer(int bobTime);
 };

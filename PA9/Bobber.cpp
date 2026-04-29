@@ -10,6 +10,7 @@ Bobber::Bobber()
 	this->hasFish = false;
 
 	this->bobTime = 5000;
+	this->timerRunning = false;
 
 	//DEBUGGING
 	std::cout << "Bobber has been created" << std::endl;
@@ -39,6 +40,7 @@ void Bobber::draw_scene(sf::RenderWindow& window)
 void Bobber::timerEnd()
 {
 	this->canCatch = true;
+	this->timerRunning = false;
 	std::cout << "Bobber can catch!" << std::endl;
 }
 
@@ -47,6 +49,8 @@ void Bobber::timerEnd()
 void Bobber::startTimer(int bobTime)
 {
 	std::cout << "Bobber timer has started. CANNOT CATCH!" << std::endl;
+	this->timerRunning = true;
+	this->canCatch = false;
 	//Method for timer found via Google AI
 	std::thread([this, bobTime]()
 	{
