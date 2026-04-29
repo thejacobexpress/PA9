@@ -120,7 +120,13 @@ int main()
         window.draw(bgObjectSprite);
 
         // Wrangle logic
-        if (fishIndex != -1) {
+        if (wrangle != nullptr && wrangle->getDel()) {
+            delete wrangle;
+            wrangle = nullptr;
+            fish = nullptr;
+            fishIndex = -1;
+        }
+        else if (fishIndex != -1) {
             if (wrangle == nullptr) {
 
                 for (int i = 0; i < water.getFishCount(); i++) {
@@ -136,11 +142,6 @@ int main()
             else {
                 wrangle->draw_scene(fish, window);
             }
-        }
-        else if (wrangle != nullptr && wrangle->getDel()) {
-            delete wrangle;
-            wrangle = nullptr;
-            fishIndex = -1;
         }
 
         window.display();

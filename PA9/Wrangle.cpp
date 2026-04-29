@@ -45,11 +45,13 @@ void Wrangle::draw_scene(Fish*fish, sf::RenderWindow& window) {
         window.draw(progressBar);
         // Wait 5 seconds
         if (std::chrono::high_resolution_clock::now() - startTime >= std::chrono::seconds(5)) {
-            del = true; // delete this object after 5 seconds
+            del = true;
+			fish->getWaterSprite().setColor(sf::Color::Transparent);
         }
     }
     else if (progress <= 0) {
         cout << "The fish got away!" << std::endl;
+        fish->setOnRod(false);
         startTime = std::chrono::high_resolution_clock::now();
         wrangleDone = true;
     }
@@ -95,7 +97,7 @@ void Wrangle::move_fish(Fish* fish, sf::RenderWindow & window) {
     }
 
 	// Change targetPos if it is close enough to the target position
-    if (abs(fish->getWrangleSprite().getPosition().y - targetPos) < 1) {
+    if (abs(fish->getWrangleSprite().getPosition().y - targetPos) < 5) {
         targetPos = -1;
     }
     else if (fish->getWrangleSprite().getPosition().y >= targetPos) {
