@@ -2,6 +2,9 @@
 
 MerchantMenu::MerchantMenu(sf::Vector2f windowSize) : Menu(windowSize)
 {
+	mRodSpeedUpgradeCost = 100;
+	mTimerUpgradeCost = 100;
+
 	if (!mFont.openFromFile("KiwiSoda.ttf"))
 	{
 		//Failed
@@ -107,38 +110,71 @@ void MerchantMenu::drawWindow(sf::RenderWindow& window)
 void MerchantMenu::drawWindow(sf::RenderWindow& window, int money, int rodLevel, int timeLevel)
 {
 	sf::Text mRodUpgrade(mFont, "Rod Level: "), mTimerUpgrade(mFont, "Timer-Reduction Level: "), mMoney(mFont, "Money: "), mName(mFont, "Merchant"); //No defualt constructor for sf::Text
+	sf::Text mRodCost(mFont, ""), mTimerCost(mFont, "");
 
 	std::string moneyStr = std::to_string(money), rodStr = std::to_string(rodLevel), timeStr = std::to_string(timeLevel);
+	std::string rodCostStr = std::to_string(mRodSpeedUpgradeCost), timerCostStr = std::to_string(mTimerUpgradeCost);
 
 	mRodUpgrade.setPosition(sf::Vector2f(window.getSize().x / 2.f - 8.f * UPGRADE_WIDTH + 3.5f * PADDING, window.getSize().y / 2.f - PADDING - UPGRADE_HEIGHT + 8.f));
 	mTimerUpgrade.setPosition(sf::Vector2f(mRodUpgrade.getPosition().x, mRodUpgrade.getPosition().y + UPGRADE_HEIGHT + 2.f * PADDING));
 	mMoney.setPosition(sf::Vector2f(mTimerUpgrade.getPosition().x, mTimerUpgrade.getPosition().y + UPGRADE_HEIGHT + 2.f * PADDING));
-	mName.setPosition(sf::Vector2f(window.getSize().x / 2.f - 10.f * PADDING, 2.f * PADDING));
-
 	mRodUpgrade.setString("Rod Level: " + rodStr);
 	mTimerUpgrade.setString("Timer-Reduction Level: " + timeStr);
 	mMoney.setString("Money: " + moneyStr);
 
+	mRodCost.setPosition(sf::Vector2f(window.getSize().x / 2.f - 8.f * UPGRADE_WIDTH + PADDING * 0.5f, window.getSize().y / 2.f - PADDING - UPGRADE_HEIGHT + 8.f));
+	mTimerCost.setPosition(sf::Vector2f(mRodCost.getPosition().x, mRodCost.getPosition().y + UPGRADE_HEIGHT + 2.f * PADDING));
+	if (rodLevel != ROD_UPGRADE_MAX_LEVEL)
+	{
+		mRodCost.setString(rodCostStr);
+	}
+	else
+	{
+		mRodCost.setString("Max");
+	}
+	if (timeLevel != TIMER_UPGRADE_MAX_LEVEL)
+	{
+		mTimerCost.setString(timerCostStr);
+	}
+	else
+	{
+		mTimerCost.setString("Max");
+	}
+	mRodCost.setFillColor(sf::Color(27, 27, 27, 200));
+	mTimerCost.setFillColor(mRodCost.getFillColor());
+
+	mName.setPosition(sf::Vector2f(window.getSize().x / 2.f - 10.f * PADDING, 2.f * PADDING));
 	mName.setCharacterSize(100);
 	mName.setFillColor(sf::Color(239, 222, 205));
 	mName.setOutlineThickness(5);
 	mName.setOutlineColor(sf::Color(100, 65, 23)); //This colour code is "Pullman Brown" :)
 
+	std::string cosmeticCostStr = std::to_string(PLAYER_COSMETIC_COST);
+	sf::Text mCosmeticCost(mFont, "Cosmetic Cost: " + cosmeticCostStr);
+	mCosmeticCost.setPosition(sf::Vector2f(window.getSize().x - 6.f * PLAYER_WIDTH, window.getSize().y - PLAYER_HEIGHT - ROD_SIZE - 6.f * PADDING));
+
 	window.draw(mRodUpgrade);
 	window.draw(mTimerUpgrade);
 	window.draw(mMoney);
 	window.draw(mName);
+	window.draw(mRodCost);
+	window.draw(mTimerCost);
+	window.draw(mCosmeticCost);
 }
 
 void MerchantMenu::handleButtonClicks(const sf::Vector2f& clickPosition, int& money, int& rodLevel, int& timerLevel)
 {
-	if (mUpgradeRodSpeed->contains(clickPosition) && rodLevel < 5)
+	if (mUpgradeRodSpeed->contains(clickPosition) && rodLevel < ROD_UPGRADE_MAX_LEVEL && money > mRodSpeedUpgradeCost)
 	{
 		++rodLevel;
+		money -= mRodSpeedUpgradeCost;
+		mRodSpeedUpgradeCost = mRodSpeedUpgradeCost * 1.6;
 	}
-	else if (mUpgradeTimer->contains(clickPosition) && timerLevel < 5)
+	else if (mUpgradeTimer->contains(clickPosition) && timerLevel < TIMER_UPGRADE_MAX_LEVEL && money > mTimerUpgradeCost)
 	{
 		++timerLevel;
+		money -= mTimerUpgradeCost;
+		mTimerUpgradeCost = mTimerUpgradeCost * 1.6;
 	}
 	else if (mSellFish->contains(clickPosition))
 	{
