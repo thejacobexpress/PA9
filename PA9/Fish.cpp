@@ -13,7 +13,7 @@ Fish::Fish(string waterTextPath, string wrangleTextPath, string caughtTextPath, 
 	this->wrangleText.loadFromFile(wrangleTextPath);
 	this->caughtText.loadFromFile(caughtTextPath);
 	this->setWaterSprite(sf::Sprite(waterText));
-	this->getWaterSprite().setOrigin({ 20,20 });
+	this->getWaterSprite().setOrigin({ 15,15 });
 	this->setWrangleSprite(sf::Sprite(wrangleText));
 	this->setCaughtSprite(sf::Sprite(caughtText));
 }

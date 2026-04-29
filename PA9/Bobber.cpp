@@ -53,6 +53,7 @@ void Bobber::timerEnd()
 {
 	this->canCatch = true;
 	this->timerRunning = false;
+	this->bobberSprite.setColor(sf::Color(255, 255, 255, 255)); /*make bobber non-transparent*/
 	std::cout << "Bobber can catch!" << std::endl;
 }
 
@@ -63,6 +64,7 @@ void Bobber::startTimer(int bobTime)
 	std::cout << "Bobber timer has started. CANNOT CATCH!" << std::endl;
 	this->timerRunning = true;
 	this->canCatch = false;
+	this->bobberSprite.setColor(sf::Color(255, 255, 255, 128)); /*make bobber semi transparent*/
 	//Method for timer found via Google AI
 	std::thread([this, bobTime]()
 	{
