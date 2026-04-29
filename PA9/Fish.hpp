@@ -2,8 +2,13 @@
 #include <iostream>
 #include <string>
 #include <SFML/Graphics.hpp>
+#include <cstdlib>
+#include <ctime>
 
 using std::string;
+using std::cout;
+using std::cin;
+using std::endl;
 
 class Fish
 {
@@ -15,7 +20,7 @@ public:
 
 	virtual ~Fish();
 
-	void wander();
+	void wander(sf::RectangleShape& bounds);
 
 	void setWaterSprite(sf::Sprite newSprite)
 	{
@@ -30,6 +35,11 @@ public:
 	sf::Sprite& getWaterSprite()
 	{
 		return this->waterSprite;
+	}
+
+	sf::Vector2f getWaterPos()
+	{
+		return this->waterSprite.getPosition();
 	}
 
 	sf::Sprite& getWrangleSprite()
@@ -47,9 +57,12 @@ public:
 		return this->wrangleText;
 	}
 
-	int getStrength() {
+	int getStrength() 
+	{
 		return this->strength;
 	}
+
+	void draw_water_sprite(sf::RenderWindow& window);
 
 private:
 	//Constant data

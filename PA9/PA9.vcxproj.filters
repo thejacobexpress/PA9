@@ -21,6 +21,15 @@
     <ClCompile Include="Fish.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Wrangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Bobber.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WaterBody.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Fish.hpp">
@@ -41,5 +50,58 @@
     <ClInclude Include="Salmon.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Wrangle.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bobber.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WaterBody.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\sprites\reel.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\sprites\reel_fish.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\sprites\water_bass.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\sprites\background_beach.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\sprites\background_full.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\sprites\background_objects.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\sprites\background_water.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\sprites\bass.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\sprites\catfish.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\sprites\placeholder_fish.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\sprites\reel_target.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\sprites\water_catfish.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\sprites\water_perch.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\sprites\water_salmon.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

@@ -4,10 +4,16 @@
 class Bass : public Fish
 {
 public:
-	Bass() : Fish("water_bass.png", "reel_fish.png", "Bass", 5.0, 3)
+	Bass(const sf::Vector2f spawnPos) : Fish("water_bass.png", "reel_fish.png", "Bass", 5.0, 3)
 	{
-
+		cout << "Bass created!" << endl;
+		this->getWaterSprite().setPosition(spawnPos);
 	}
+
+	~Bass()
+	{
+		cout << "Bass destroyed!" << endl;
+	};
 
 private:
 

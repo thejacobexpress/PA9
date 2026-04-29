@@ -182,23 +182,38 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bobber.cpp" />
     <ClCompile Include="Fish.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="WaterBody.cpp" />
     <ClCompile Include="Wrangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bass.hpp" />
+    <ClInclude Include="Bobber.hpp" />
     <ClInclude Include="Catfish.hpp" />
     <ClInclude Include="Perch.hpp" />
     <ClInclude Include="Fish.hpp" />
     <ClInclude Include="Rod.hpp" />
     <ClInclude Include="Salmon.hpp" />
+    <ClInclude Include="WaterBody.hpp" />
     <ClInclude Include="Wrangle.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\sprites\background_beach.png" />
+    <Image Include="..\sprites\background_full.png" />
+    <Image Include="..\sprites\background_objects.png" />
+    <Image Include="..\sprites\background_water.png" />
+    <Image Include="..\sprites\bass.png" />
+    <Image Include="..\sprites\catfish.png" />
+    <Image Include="..\sprites\placeholder_fish.png" />
     <Image Include="..\sprites\reel.png" />
     <Image Include="..\sprites\reel_fish.png" />
+    <Image Include="..\sprites\reel_target.png" />
     <Image Include="..\sprites\water_bass.png" />
+    <Image Include="..\sprites\water_catfish.png" />
+    <Image Include="..\sprites\water_perch.png" />
+    <Image Include="..\sprites\water_salmon.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
