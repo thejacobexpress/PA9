@@ -109,7 +109,7 @@ private:
 	sf::Sprite caughtSprite = sf::Sprite(caughtText);
 
 	//Runtime data
-	bool onRod;
+	bool onRod = false;
 	sf::Vector2f direction; //direction in the lake while moving
 	float waterSpeed;
 };
