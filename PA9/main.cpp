@@ -121,6 +121,8 @@ int main()
             delete wrangle;
             wrangle = nullptr;
             fish = nullptr;
+            bobber.setHasFish(false);
+            bobber.startTimer();
             fishIndex = -1;
         }
         else if (fishIndex != -1) {

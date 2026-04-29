@@ -2,7 +2,7 @@
 
 WaterBody::WaterBody()
 {
-	this->maxFish = 20;
+	this->maxFish = 100;
 	this->fishCount = 0;
 
 	this->bounds = sf::RectangleShape({ 1200, 500 });

@@ -38,7 +38,7 @@ void Wrangle::draw_scene(Fish*fish, sf::RenderWindow& window) {
         fish->getCaughtSprite().setPosition({ 600, 200 });
         window.draw(fish->getCaughtSprite());
     }
-    else if (progress >= 100 && wrangleDone) {
+    else if ((progress >= 100 || progress <= 0) && wrangleDone) {
 		if(caught) window.draw(fish->getCaughtSprite());
         window.draw(barSprite);
         window.draw(targetBar);
