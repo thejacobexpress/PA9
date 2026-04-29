@@ -37,6 +37,11 @@ public:
 		this->caughtSprite = newSprite;
 	}
 
+	void setOnRod(bool newOnRod)
+	{
+		this->onRod = newOnRod;
+	}
+
 	sf::Sprite& getWaterSprite()
 	{
 		return this->waterSprite;
@@ -67,15 +72,24 @@ public:
 		return this->wrangleText;
 	}
 
-	int getStrength() 
-	{
 	sf::Texture& getCaughtTexture()
 	{
 		return this->caughtText;
 	}
 
-	int getStrength() {
+	int getStrength() 
+	{
 		return this->strength;
+	}
+
+	string getName()
+	{
+		return this->name;
+	}
+
+	bool getOnRod()
+	{
+		return this->onRod;
 	}
 
 	void draw_water_sprite(sf::RenderWindow& window);
@@ -97,4 +111,5 @@ private:
 	//Runtime data
 	bool onRod;
 	sf::Vector2f direction; //direction in the lake while moving
+	float waterSpeed;
 };

@@ -15,6 +15,7 @@ int main()
     
     //Window
     sf::RenderWindow window(sf::VideoMode({ 1280, 720 }), "SFML (Savage Fish Mayhem Live)");
+    window.setFramerateLimit(60);
 
     //Bass bass;
 	//Wrangle wrangle(bass, window, scale);
@@ -51,7 +52,6 @@ int main()
                 if (mousePressed->button == sf::Mouse::Button::Left 
                     && water.getBounds().getGlobalBounds().contains({ static_cast<float>(mousePressed->position.x),  static_cast<float>(mousePressed->position.y) }))
                 {
-                    bobber.timerEnd(); //ensures the previous timer was stopped.
                     bobber.setPosition({ static_cast<float>(mousePressed->position.x),  static_cast<float>(mousePressed->position.y) });
                     bobber.startTimer();
 
@@ -78,9 +78,31 @@ int main()
         
         //wrangle.draw_scene(bass, window);
 
+        //Running fish checks
         for (auto& fishPtr : water.getFishPopulation())
         {
-            fishPtr->wander(water.getBounds());
+            //If the fish is on the bobber, catch it
+            if (bobber.getBobberSprite().getGlobalBounds().contains(fishPtr->getWaterPos()) 
+                && bobber.getCanCatch()
+                && !bobber.getHasFish())
+            {
+                fishPtr->setOnRod(true);
+                bobber.setHasFish(true);
+
+            }
+            //Otherwise, set on rod to false
+            else
+            {
+                fishPtr->setOnRod(false);
+                bobber.setHasFish(false);
+            }
+
+            //If the fish is not on the rod, let it move
+            if (!fishPtr->getOnRod())
+            {
+                fishPtr->wander(water.getBounds());
+            }
+
             fishPtr->draw_water_sprite(window); 
         }
 

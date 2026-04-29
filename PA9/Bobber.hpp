@@ -23,6 +23,10 @@ public:
 	{
 		return this->canCatch;
 	}
+	bool getHasFish()
+	{
+		return this->hasFish;
+	}
 
 	sf::Vector2f getPosition()
 	{
@@ -31,6 +35,8 @@ public:
 
 	//Setters
 	void setPosition(sf::Vector2f newPos);
+
+	void setHasFish(bool newHasFish);
 
 	void draw_scene(sf::RenderWindow& window);
 
@@ -49,6 +55,9 @@ private:
 	//False when timer is not done
 	//True otherwise
 	bool canCatch;
+
+	//Checks if the 
+	bool hasFish;
 
 	//Represents time before bobber can catch fish in milliseconds
 	int bobTime;

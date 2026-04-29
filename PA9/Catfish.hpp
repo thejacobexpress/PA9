@@ -4,9 +4,7 @@
 class Catfish : public Fish
 {
 public:
-	Catfish(const sf::Vector2f spawnPos) : Fish("water_catfish.png", "reel_fish.png", "Catfish", 2.0, 2)
-
-	Catfish() : Fish("water_catfish.png", "reel_fish.png", "catfish.png", "Catfish", 2.0, 2)
+	Catfish(const sf::Vector2f spawnPos) : Fish("water_catfish.png", "reel_fish.png", "catfish.png", "Catfish", 2.0, 2)
 	{
 		cout << "Catfish created!" << endl;
 		this->getWaterSprite().setPosition(spawnPos);

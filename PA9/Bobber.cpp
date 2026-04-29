@@ -7,6 +7,7 @@ Bobber::Bobber()
 	bobberSprite.setOrigin({ bobberSprite.getGlobalBounds().size.x / 2, bobberSprite.getGlobalBounds().size.y / 2 });
 
 	this->canCatch = false;
+	this->hasFish = false;
 
 	this->bobTime = 5000;
 
@@ -23,6 +24,11 @@ Bobber::~Bobber()
 void Bobber::setPosition(sf::Vector2f newPos)
 {
 	this->bobberSprite.setPosition(newPos);
+}
+
+void Bobber::setHasFish(bool newHasFish)
+{
+	this->hasFish = newHasFish;
 }
 
 void Bobber::draw_scene(sf::RenderWindow& window)
