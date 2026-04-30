@@ -13,3 +13,4 @@ Daniel Aldrich - Lab
 5. Press the "M" button to open the market and buy upgrades.
 
 ## Video Link
+https://www.youtube.com/watch?v=q6QfpCeWPoY
