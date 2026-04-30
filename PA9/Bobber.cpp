@@ -43,6 +43,11 @@ void Bobber::setBobber(std::string newBobberFile)
 	bobberSprite.setTexture(bobberText);
 }
 
+void Bobber::updateBobberTimer(int newBobberTimerLevel)
+{
+	bobTime = bobTime - ((float)newBobberTimerLevel + 0.005) * bobTime/9;
+}
+
 //bool Bobber::hasFish(WaterBody& water)
 //{
 //	for (auto& fishPtr : water.getFishPopulation())

@@ -185,6 +185,7 @@ void MerchantMenu::handleButtonClicks(const sf::Vector2f& clickPosition, int& mo
 	{
 		++timerLevel;
 		money -= mTimerUpgradeCost;
+		bobber.updateBobberTimer(timerLevel);
 		mTimerUpgradeCost = mTimerUpgradeCost * UPGRADE_MULTIPLER;
 	}
 	else if (mSellFish->contains(clickPosition))

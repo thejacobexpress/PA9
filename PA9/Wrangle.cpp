@@ -169,3 +169,9 @@ bool Wrangle::getCaught()
 bool Wrangle::getDel() {
     return del;
 }
+
+void Wrangle::updateAccelValues(float newGravityAccel, float newUserAccel)
+{
+    gravityAcceleration += (0.002f * newGravityAccel*5.5);
+    userAcceleration += (0.2f * newUserAccel/3.5);
+}
