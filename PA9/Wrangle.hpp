@@ -45,4 +45,7 @@ public:
     bool getCaught();
 
     bool getDel();
+
+    void updateAccelValues(float newGravityAccel, float newUserAccel);
+
 };
