@@ -7,6 +7,8 @@ void Test::runAllTests()
     std::cout << "Test 1 (Button Locking): " << (testButtonLocking() ? "PASSED" : "FAILED") << "\n"; //Can use ternrary operator inside of std::cout lines
     std::cout << "Test 2 (Button State Update): " << (testButtonStateUpdate() ? "PASSED" : "FAILED") << "\n";
     std::cout << "Test 3 (Button Bounds): " << (testButtonBounds() ? "PASSED" : "FAILED") << "\n";
+    std::cout << "Test 4 (Perch Spawn Position): " << (testPerchSpawnPosition() ? "PASSED" : "FAILED") << "\n";
+    std::cout << "Test 5 (Salmon Spawn Position): " << (testSalmonSpawnPosition() ? "PASSED" : "FAILED") << "\n";
 }
 
 bool Test::testButtonLocking()
@@ -74,4 +76,32 @@ bool Test::testButtonBounds()
     if (testButton.getState() != ButtonState::Pushed) { return false; }
     
     return true;
+}
+
+bool Test::testPerchSpawnPosition()
+{
+    Perch p({ 0,0 });
+
+    if (p.getWaterPos() == sf::Vector2f({0, 0}))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool Test::testSalmonSpawnPosition()
+{
+    Salmon s({ 0,0 });
+
+    if (s.getWaterPos() == sf::Vector2f({ 0, 0 }))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    };
 }

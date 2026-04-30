@@ -1,5 +1,7 @@
 #pragma once
 #include "Button.h"
+#include "Perch.hpp"
+#include "Salmon.hpp"
 #include <iostream>
 
 class Test
@@ -17,4 +19,12 @@ private:
 
     //Test 3: Verifies the boundary detection of the button sprite
     static bool testButtonBounds();
+
+    //Test 4:
+    static bool testPerchSpawnPosition();
+
+    //Test 5:
+    static bool testSalmonSpawnPosition();
+
+
 };
