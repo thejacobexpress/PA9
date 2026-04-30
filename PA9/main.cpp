@@ -18,7 +18,7 @@ int main()
     float scale = 1;
 
     //Player variables
-    int currency = 0, rodLevel = 0, timerLevel = 0;
+    int currency = 0, rodLevel = 0, timerLevel = 0, fishMoneyToSell = 0;
     
     //Window
     sf::Vector2f defaultWindowSize({ 1280, 720 });
@@ -88,7 +88,7 @@ int main()
                 //Merchant logic
                 if (currentState == GameState::Merchant)
                 {
-                    merchantMenu.handleButtonClicks(clickPosition, currency, rodLevel, timerLevel, bobber);
+                    merchantMenu.handleButtonClicks(clickPosition, currency, fishMoneyToSell, rodLevel, timerLevel, bobber);
                 }
                 else if (currentState == GameState::Playing)
                 {
@@ -164,6 +164,12 @@ int main()
 
             // Wrangle logic
             if (wrangle != nullptr && wrangle->getDel()) {
+
+                if (wrangle->getCaught())
+                {
+                    fishMoneyToSell += fish->getValue();
+                }
+
                 delete wrangle;
                 wrangle = nullptr;
                 fish = nullptr;

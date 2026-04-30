@@ -42,5 +42,7 @@ public:
 	void move_fish(Fish* fish, sf::RenderWindow& window);
     float get_new_loc(Fish* fish, sf::RenderWindow& window);
 
+    bool getCaught();
+
     bool getDel();
 };

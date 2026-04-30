@@ -162,7 +162,7 @@ void MerchantMenu::drawWindow(sf::RenderWindow& window, int money, int rodLevel,
 	window.draw(mCosmeticCost);
 }
 
-void MerchantMenu::handleButtonClicks(const sf::Vector2f& clickPosition, int& money, int& rodLevel, int& timerLevel, Bobber& bobber)
+void MerchantMenu::handleButtonClicks(const sf::Vector2f& clickPosition, int& money, int& fishMoneyToSell,int& rodLevel, int& timerLevel, Bobber& bobber)
 {
 	if (mUpgradeRodSpeed->contains(clickPosition) && rodLevel < ROD_UPGRADE_MAX_LEVEL && money > mRodSpeedUpgradeCost)
 	{
@@ -178,7 +178,8 @@ void MerchantMenu::handleButtonClicks(const sf::Vector2f& clickPosition, int& mo
 	}
 	else if (mSellFish->contains(clickPosition))
 	{
-		money += money + 1 * 10;
+		money += fishMoneyToSell;
+		fishMoneyToSell = 0;
 	}
 	else if (mPlayer1->contains(clickPosition))
 	{

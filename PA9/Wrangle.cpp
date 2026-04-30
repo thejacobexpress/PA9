@@ -161,6 +161,11 @@ float Wrangle::get_new_loc(Fish* fish, sf::RenderWindow& window) {
     return newLoc;
 }
 
+bool Wrangle::getCaught()
+{
+    return caught;
+}
+
 bool Wrangle::getDel() {
     return del;
 }

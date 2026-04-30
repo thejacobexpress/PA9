@@ -35,7 +35,7 @@ public:
 	void drawWindow(sf::RenderWindow& window, int money, int rodLevel, int timeLevel);
 
 	//Buying and selling
-	void handleButtonClicks(const sf::Vector2f& clickPosition, int& money, int& rodLevel, int& timerLevel, Bobber& bobber);
+	void handleButtonClicks(const sf::Vector2f& clickPosition, int& money, int& fishMoneyToSell, int& rodLevel, int& timerLevel, Bobber& bobber);
 	
 
 private:

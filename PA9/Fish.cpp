@@ -1,7 +1,7 @@
 #include "Fish.hpp"
 
 Fish::Fish(string waterTextPath, string wrangleTextPath, string caughtTextPath, const string newName,
-	const double newWeight, const int newStrength)
+	const double newWeight, const int newStrength, const int newValue)
 {
 	this->name = newName;
 	this->weight = newWeight;
@@ -9,6 +9,7 @@ Fish::Fish(string waterTextPath, string wrangleTextPath, string caughtTextPath, 
 	this->onRod = false;
 	this->waterSpeed = 0.8f;
 	this->direction = {0,1};
+	this->value = newValue;
 	this->waterText.loadFromFile(waterTextPath);
 	this->wrangleText.loadFromFile(wrangleTextPath);
 	this->caughtText.loadFromFile(caughtTextPath);

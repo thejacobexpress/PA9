@@ -16,7 +16,8 @@ public:
 	Fish(string waterTextPath, string wrangleTextPath, string caughtTextPath,
 		const string newName = "EMPTY_FISH_NAME",
 		const double newSize = 0.0,
-		const int newStrength = 0);
+		const int newStrength = 0,
+		const int newValue = 0);
 
 	virtual ~Fish();
 
@@ -82,6 +83,11 @@ public:
 		return this->strength;
 	}
 
+	int getValue()
+	{
+		return this->value;
+	}
+
 	string getName()
 	{
 		return this->name;
@@ -98,7 +104,8 @@ private:
 	//Constant data
 	string name;
 	double weight; //measured in lbs (pounds)
-	int strength; //Used by the wrangle meter to determine 
+	int strength; //Used by the wrangle meter to determine
+	int value;
 
 	// Texture and sprite of fish in water, wrangling, and caught
 	sf::Texture waterText;
