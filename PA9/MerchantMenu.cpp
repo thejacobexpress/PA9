@@ -61,23 +61,23 @@ MerchantMenu::MerchantMenu(sf::Vector2f windowSize) : Menu(windowSize)
 	mPlayer2.emplace(mTextures.player2, sf::Vector2f(mPlayer1->getPosition().x + PLAYER_WIDTH + 2.f * PADDING, mPlayer1->getPosition().y), sf::Color::White, sf::Color(150, 150, 150), sf::Color(100, 100, 100));
 	mPlayer3.emplace(mTextures.player3, sf::Vector2f(mPlayer2->getPosition().x + PLAYER_WIDTH + 2.f * PADDING, mPlayer1->getPosition().y), sf::Color::White, sf::Color(150, 150, 150), sf::Color(100, 100, 100));
 
-	mPlayer1->setLocked(true);
+	mPlayer1->setLocked(false); //Because this is defualt
 	mPlayer2->setLocked(true);
 	mPlayer3->setLocked(true);
 
 
 	// --- Rods: ---
-	if (!mTextures.rod1.loadFromFile("Rod1.png"))
+	if (!mTextures.rod1.loadFromFile("MerchantBobber1.png"))
 	{
 		//Failed
 		cout << "Rod 1 failed to load" << endl;
 	}
-	if (!mTextures.rod2.loadFromFile("Rod2.png"))
+	if (!mTextures.rod2.loadFromFile("MerchantBobber2.png"))
 	{
 		//Failed
 		cout << "Rod 2 failed to load" << endl;
 	}
-	if (!mTextures.rod3.loadFromFile("Rod3.png"))
+	if (!mTextures.rod3.loadFromFile("MerchantBobber3.png"))
 	{
 		//Failed
 		cout << "Rod 3 failed to load" << endl;
@@ -87,7 +87,7 @@ MerchantMenu::MerchantMenu(sf::Vector2f windowSize) : Menu(windowSize)
 	mRod2.emplace(mTextures.rod2, sf::Vector2f(mRod1->getPosition().x + ROD_SIZE + 2.f * PADDING, mRod1->getPosition().y), sf::Color::White, sf::Color(150, 150, 150), sf::Color(100, 100, 100));
 	mRod3.emplace(mTextures.rod3, sf::Vector2f(mRod2->getPosition().x + ROD_SIZE + 2.f * PADDING, mRod2->getPosition().y), sf::Color::White, sf::Color(150, 150, 150), sf::Color(100, 100, 100));
 
-	mRod1->setLocked(true);
+	mRod1->setLocked(false); //Becuase this is defualt
 	mRod2->setLocked(true);
 	mRod3->setLocked(true);
 
@@ -179,13 +179,13 @@ void MerchantMenu::handleButtonClicks(const sf::Vector2f& clickPosition, int& mo
 	{
 		++rodLevel;
 		money -= mRodSpeedUpgradeCost;
-		mRodSpeedUpgradeCost = mRodSpeedUpgradeCost * 1.6;
+		mRodSpeedUpgradeCost = mRodSpeedUpgradeCost * UPGRADE_MULTIPLER;
 	}
 	else if (mUpgradeTimer->contains(clickPosition) && timerLevel < TIMER_UPGRADE_MAX_LEVEL && money > mTimerUpgradeCost)
 	{
 		++timerLevel;
 		money -= mTimerUpgradeCost;
-		mTimerUpgradeCost = mTimerUpgradeCost * 1.6;
+		mTimerUpgradeCost = mTimerUpgradeCost * UPGRADE_MULTIPLER;
 	}
 	else if (mSellFish->contains(clickPosition))
 	{
@@ -200,6 +200,10 @@ void MerchantMenu::handleButtonClicks(const sf::Vector2f& clickPosition, int& mo
 			money = money - PLAYER_COSMETIC_COST;
 			std::cout << "Bought" << std::endl;
 		}
+		if (!mPlayer1->isLocked())
+		{
+			//Change player
+		}
 	}
 	else if (mPlayer2->contains(clickPosition))
 	{
@@ -209,6 +213,10 @@ void MerchantMenu::handleButtonClicks(const sf::Vector2f& clickPosition, int& mo
 			money = money - PLAYER_COSMETIC_COST;
 			std::cout << "Bought" << std::endl;
 		}
+		if (!mPlayer2->isLocked())
+		{
+			//Change player
+		}
 	}
 	else if (mPlayer3->contains(clickPosition))
 	{
@@ -217,6 +225,10 @@ void MerchantMenu::handleButtonClicks(const sf::Vector2f& clickPosition, int& mo
 			mPlayer3->setLocked(false);
 			money = money - PLAYER_COSMETIC_COST;
 			std::cout << "Bought" << std::endl;
+		}
+		if (!mPlayer3->isLocked())
+		{
+			//Change player
 		}
 	}
 	else if (mRod1->contains(clickPosition))
@@ -229,7 +241,7 @@ void MerchantMenu::handleButtonClicks(const sf::Vector2f& clickPosition, int& mo
 		}
 		if (!mRod1->isLocked())
 		{
-			//bobber.setBobber("bobber1.png");
+			bobber.setBobber("bobber1.png");
 		}
 	}
 	else if (mRod2->contains(clickPosition))
@@ -242,7 +254,7 @@ void MerchantMenu::handleButtonClicks(const sf::Vector2f& clickPosition, int& mo
 		}
 		if (!mRod2->isLocked())
 		{
-			//bobber.setBobber("bobber2.png");
+			bobber.setBobber("bobber2.png");
 		}
 	}
 	else if (mRod3->contains(clickPosition))
@@ -252,11 +264,11 @@ void MerchantMenu::handleButtonClicks(const sf::Vector2f& clickPosition, int& mo
 			mRod3->setLocked(false);
 			money = money - ROD_COSMETIC_COST;
 			std::cout << "Bought" << std::endl;
-			//bobber.setBobber("bobber3.png");
+			bobber.setBobber("bobber3.png");
 		}
 		if (!mRod3->isLocked())
 		{
-			//bobber.setBobber("bobber3.png");
+			bobber.setBobber("bobber3.png");
 		}
 	}
 }

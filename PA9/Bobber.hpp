@@ -45,6 +45,8 @@ public:
 
 	void draw_scene(sf::RenderWindow& window);
 
+	void setBobber(std::string newBobberFile);
+
 	//bool hasFish(WaterBody& water);
 
 	//Timer

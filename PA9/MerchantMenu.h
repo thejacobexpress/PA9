@@ -21,6 +21,8 @@
 #define ROD_UPGRADE_MAX_LEVEL 5
 #define TIMER_UPGRADE_MAX_LEVEL 5
 
+#define UPGRADE_MULTIPLER 1.6
+
 using std::cout;
 using std::endl;
 

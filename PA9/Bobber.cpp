@@ -37,6 +37,12 @@ void Bobber::draw_scene(sf::RenderWindow& window)
 	window.draw(bobberSprite);
 }
 
+void Bobber::setBobber(std::string newBobberFile)
+{
+	bobberText.loadFromFile(newBobberFile);
+	bobberSprite.setTexture(bobberText);
+}
+
 //bool Bobber::hasFish(WaterBody& water)
 //{
 //	for (auto& fishPtr : water.getFishPopulation())
