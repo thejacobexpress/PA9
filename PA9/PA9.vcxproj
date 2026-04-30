@@ -229,6 +229,9 @@
     <Image Include="..\sprites\water_perch.png" />
     <Image Include="..\sprites\water_salmon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="readme.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
