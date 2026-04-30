@@ -3,7 +3,7 @@
 Jacob McKee - Lab 2 with Seth Bingaman\
 Roagan Wolf - Lab 3 with Alan P\
 Ivan Potapov - Lab 1 with Abby Gardener\
-Daniel Aldrich - Lab 
+Daniel Aldrich - Lab 11 with Logan Meyers
 
 ## How to Play:
 1. Left click anywhere on the lake to cast your bobber. - Transparent bobber means the rod is on cooldown
