@@ -1,6 +1,6 @@
-SFML (Savage Fish Mayhem Live)
+#SFML (Savage Fish Mayhem Live)
 
-How to Play:
+##How to Play:
 1. Left click anywhere on the lake to cast your bobber. - Transparent bobber means the rod is on cooldown
 2. Wait for a fish to catch.
 3. When the "Wrangle" window pops up, press space to move the brown rectangle up to keep the fish in the rectangle.
