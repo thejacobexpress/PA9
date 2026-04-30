@@ -131,11 +131,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\Program Files\SFML\SFML-3.1.0\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Program Files\SFML\SFML-3.1.0\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -146,11 +149,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\Program Files\SFML\SFML-3.1.0\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Program Files\SFML\SFML-3.1.0\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
@@ -183,19 +189,27 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bobber.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="Fish.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="MerchantMenu.cpp" />
+    <ClCompile Include="Test.cpp" />
     <ClCompile Include="WaterBody.cpp" />
     <ClCompile Include="Wrangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bass.hpp" />
     <ClInclude Include="Bobber.hpp" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="Catfish.hpp" />
+    <ClInclude Include="Menu.h" />
+    <ClInclude Include="MerchantMenu.h" />
     <ClInclude Include="Perch.hpp" />
     <ClInclude Include="Fish.hpp" />
     <ClInclude Include="Rod.hpp" />
     <ClInclude Include="Salmon.hpp" />
+    <ClInclude Include="Test.h" />
     <ClInclude Include="WaterBody.hpp" />
     <ClInclude Include="Wrangle.hpp" />
   </ItemGroup>
