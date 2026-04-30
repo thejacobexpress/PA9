@@ -164,7 +164,7 @@ int main()
 
             // Wrangle logic
             if (wrangle != nullptr && wrangle->getDel()) {
-
+              
                 if (wrangle->getCaught())
                 {
                     fishMoneyToSell += fish->getValue();
@@ -188,6 +188,8 @@ int main()
                     }
 
                     wrangle = new Wrangle(fish, window, scale);
+                    //Wrangle upgrade
+                    wrangle->updateAccelValues((float)rodLevel, (float)rodLevel);
                     wrangle->draw_scene(fish, window);
                 }
                 else {
