@@ -4,7 +4,7 @@ void Test::runAllTests()
 {
     std::cout << "Testing:\n";
     
-    std::cout << "Test 1 (Button Locking): " << (testButtonLocking() ? "PASSED" : "FAILED") << "\n";
+    std::cout << "Test 1 (Button Locking): " << (testButtonLocking() ? "PASSED" : "FAILED") << "\n"; //Can use ternrary operator inside of std::cout lines
     std::cout << "Test 2 (Button State Update): " << (testButtonStateUpdate() ? "PASSED" : "FAILED") << "\n";
     std::cout << "Test 3 (Button Bounds): " << (testButtonBounds() ? "PASSED" : "FAILED") << "\n";
 }
@@ -59,8 +59,19 @@ bool Test::testButtonBounds()
 {
     sf::Texture testTexture;
     testTexture.resize({ 50, 50 });
+    Button testButton(testTexture, sf::Vector2f(0.f, 0.f));
+    
+    //Test if clicking anywhere will cause issues with buttons
+    testButton.updateButtonState(sf::Vector2f(100.f, 100.f), true);
+    if (testButton.getState() != ButtonState::Idle) { return false; }
 
-    //Have true until test is complete
+    //Test if clicking in bounds works
+    testButton.updateButtonState(sf::Vector2f(49.f, 49.f), true);
+    if (testButton.getState() != ButtonState::Pushed) { return false; }
+
+    //Test if clikcing button wokrs
+    testButton.updateButtonState(sf::Vector2f(25.f, 25.f), true);
+    if (testButton.getState() != ButtonState::Pushed) { return false; }
+    
     return true;
-
 }

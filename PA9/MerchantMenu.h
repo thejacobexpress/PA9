@@ -21,6 +21,9 @@
 #define ROD_UPGRADE_MAX_LEVEL 5
 #define TIMER_UPGRADE_MAX_LEVEL 5
 
+using std::cout;
+using std::endl;
+
 class MerchantMenu : public Menu
 {
 public:

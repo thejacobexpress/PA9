@@ -53,7 +53,7 @@ int main()
     GameState currentState = GameState::Playing;
 
     //For Testing
-    //Test::runAllTests();
+    Test::runAllTests();
 
     while (window.isOpen())
     {

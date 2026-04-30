@@ -8,26 +8,31 @@ MerchantMenu::MerchantMenu(sf::Vector2f windowSize) : Menu(windowSize)
 	if (!mFont.openFromFile("KiwiSoda.ttf"))
 	{
 		//Failed
+		cout << "Font failed to load" << endl;
 	}
 
 	// --- Background: ---
 	if (!mTextures.background.loadFromFile("BackgroundMerchant.png"))
 	{
 		//Failed
+		cout << "Background for merchant failed to load" << endl;
 	}
 
 	// --- Upgrades: ---
 	if (!mTextures.rodSpeed.loadFromFile("RodUpgrade.png"))
 	{
 		//Failed
+		cout << "Rod upgrade failed to load" << endl;
 	}
 	if (!mTextures.sell.loadFromFile("SellFish.png"))
 	{
 		//Failed
+		cout << "Sell fish failed to load" << endl;
 	}
 	if (!mTextures.timer.loadFromFile("UpgradeTimer.png"))
 	{
 		//Failed
+		cout << "Timer upgrade failed to load" << endl;
 	}
 
 	//For padding, each button relies off of button above it; first button is "master button"
@@ -39,14 +44,17 @@ MerchantMenu::MerchantMenu(sf::Vector2f windowSize) : Menu(windowSize)
 	if (!mTextures.player1.loadFromFile("Player1.png"))
 	{
 		//Failed
+		cout << "Player 1 failed to load" << endl;
 	}
 	if (!mTextures.player2.loadFromFile("Player2.png"))
 	{
 		//Failed
+		cout << "Player 2 failed to load" << endl;
 	}
 	if (!mTextures.player3.loadFromFile("Player3.png"))
 	{
 		//Failed
+		cout << "Player 3 failed to load" << endl;
 	}
 	//Master button
 	mPlayer1.emplace(mTextures.player1, sf::Vector2f(windowSize.x - 6.f * PLAYER_WIDTH, windowSize.y - PLAYER_HEIGHT - 2.f * PADDING), sf::Color::White, sf::Color(150, 150, 150), sf::Color(100, 100, 100));
@@ -62,14 +70,17 @@ MerchantMenu::MerchantMenu(sf::Vector2f windowSize) : Menu(windowSize)
 	if (!mTextures.rod1.loadFromFile("Rod1.png"))
 	{
 		//Failed
+		cout << "Rod 1 failed to load" << endl;
 	}
 	if (!mTextures.rod2.loadFromFile("Rod2.png"))
 	{
 		//Failed
+		cout << "Rod 2 failed to load" << endl;
 	}
 	if (!mTextures.rod3.loadFromFile("Rod3.png"))
 	{
 		//Failed
+		cout << "Rod 3 failed to load" << endl;
 	}
 	//Master button IS mPlayer1
 	mRod1.emplace(mTextures.rod1, sf::Vector2f(mPlayer1->getPosition().x, mPlayer1->getPosition().y - ROD_SIZE - PADDING), sf::Color::White, sf::Color(150, 150, 150), sf::Color(100, 100, 100));
@@ -162,7 +173,7 @@ void MerchantMenu::drawWindow(sf::RenderWindow& window, int money, int rodLevel,
 	window.draw(mCosmeticCost);
 }
 
-void MerchantMenu::handleButtonClicks(const sf::Vector2f& clickPosition, int& money, int& fishMoneyToSell,int& rodLevel, int& timerLevel, Bobber& bobber)
+void MerchantMenu::handleButtonClicks(const sf::Vector2f& clickPosition, int& money, int& fishMoneyToSell, int& rodLevel, int& timerLevel, Bobber& bobber)
 {
 	if (mUpgradeRodSpeed->contains(clickPosition) && rodLevel < ROD_UPGRADE_MAX_LEVEL && money > mRodSpeedUpgradeCost)
 	{
