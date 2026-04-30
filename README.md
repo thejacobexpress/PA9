@@ -1,8 +1,8 @@
 # SFML (Savage Fish Mayhem Live)
 Created By
-Jacob McKee - Lab 2 with Seth Bingaman
-Roagan Wolf - Lab 3 with Alan P
-Ivan Potapov - Lab 1 with Abby Gardener
+Jacob McKee - Lab 2 with Seth Bingaman\
+Roagan Wolf - Lab 3 with Alan P\
+Ivan Potapov - Lab 1 with Abby Gardener\
 Daniel Aldrich - Lab 
 
 ## How to Play:
